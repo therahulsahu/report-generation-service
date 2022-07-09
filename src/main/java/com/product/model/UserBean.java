@@ -1,4 +1,4 @@
-package com.reportgenerationservice.model;
+package com.product.model;
  
 
 public class UserBean {

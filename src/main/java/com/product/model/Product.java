@@ -1,4 +1,4 @@
-package com.reportgenerationservice.model;
+package com.product.model;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.couchbase.core.mapping.Document;

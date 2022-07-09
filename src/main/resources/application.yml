@@ -1,6 +1,6 @@
 spring:
   couchbase:
     connection-string: "127.0.0.1"
-    user-name: "admin"
-    password: "password"
-    bucket-name: "product"
+    user-name: "<<your username>>"
+    password: "<<your password>>"
+    bucket-name: "<<bucket name>>"

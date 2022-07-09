@@ -1,4 +1,4 @@
-package com.reportgeneration.couchbaseConfig;
+package com.reportgenerationservice.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;

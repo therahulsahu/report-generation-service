@@ -13,7 +13,7 @@ import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import com.reportgenerationservice.model.Product;
+import com.product.model.Product;
 
 public class ProductExcelExporter {
 	private XSSFWorkbook workbook;
@@ -90,6 +90,5 @@ public class ProductExcelExporter {
         workbook.close();
          
         outputStream.close();
-         
     }
 }

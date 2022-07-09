@@ -1,4 +1,4 @@
-package com.reportgenerationservice.model;
+package com.product.model;
 
 import java.util.ArrayList;
 import java.util.List;
