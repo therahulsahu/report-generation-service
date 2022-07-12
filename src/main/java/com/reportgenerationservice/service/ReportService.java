@@ -20,7 +20,6 @@ public class ReportService {
     @Autowired
     private ProductRepository repository;
 
-
     public String exportReport(String reportFormat) throws FileNotFoundException, JRException {
         String path = "";
         List<Product> products = repository.findAll();

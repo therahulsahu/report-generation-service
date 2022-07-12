@@ -45,7 +45,7 @@ public class ReportController {
     }
 
     @GetMapping("/pdf")
-    public ResponseEntity<Resource> download(HttpServletResponse res) throws IOException, JRException {
+    public ResponseEntity<Resource> downloadPdf(HttpServletResponse res) throws IOException, JRException {
 
         reportService.exportReport("pdf");
 
