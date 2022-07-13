@@ -4,11 +4,13 @@ import com.product.model.Product;
 import com.reportgenerationservice.excelConfig.ProductExcelExporter;
 import com.reportgenerationservice.service.ReportService;
 import com.reportgenerationservice.repository.ProductRepository;
+import com.sun.net.httpserver.Authenticator;
 import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -65,7 +67,7 @@ public class ReportController {
     }
 
     @GetMapping("/excel")
-    public void exportToExcelAndDownload(HttpServletResponse response) throws IOException {
+    public ResponseEntity<?> exportToExcelAndDownload(HttpServletResponse response) throws IOException {
         response.setContentType("application/octet-stream");
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");
         String currentDateTime = dateFormatter.format(new Date());
@@ -79,10 +81,12 @@ public class ReportController {
         ProductExcelExporter excelExporter = new ProductExcelExporter(listProducts);
 
         excelExporter.export(response);
+
+        return new ResponseEntity<Authenticator.Success>(HttpStatus.OK);
     }
 
     @GetMapping("/csv")
-    public void exportToCSV(HttpServletResponse response) throws IOException {
+    public ResponseEntity<?> exportToCSV(HttpServletResponse response) throws IOException {
         response.setContentType("text/csv");
         DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss");
         String currentDateTime = dateFormatter.format(new Date());
@@ -105,6 +109,8 @@ public class ReportController {
             csvWriter.write(products, nameMapping);
         }
         csvWriter.close();
+
+        return new ResponseEntity<Authenticator.Success>(HttpStatus.OK);
     }
 
 }
